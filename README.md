@@ -8,4 +8,4 @@
 
 #4) Digits Number Recognition (Kaggle)
 
-#5) Leet Code Problems done (huge folder)
+#5) Leet Code Problems done (huge folder, when a lot of problems will be solved)
