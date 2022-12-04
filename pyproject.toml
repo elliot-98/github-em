@@ -1,0 +1,71 @@
+[tool.poetry.dependencies]
+python = "~3.8.10"
+boto3 = "^1.9" # interact with AWS services
+shapely = "^1.6" # geometry manipulations
+streamlit = ">=0.81"
+pandas = "^1.2"
+psycopg2-binary = "^2.8.6"
+matplotlib = "^3.3"
+gspread = "^3.2.0" # interact with Google sheets
+python-dotenv = "^0.11.0" # load env variable from `.env` files
+seaborn = ">=0.11" # improvements for matplotlib
+pyproj = "^2.4.2" # geospatital projections
+locationiq = "^0.0.2" # geocoding
+pyarrow = "^4.0.0" # parquet file support
+area = "^1.1.1" # compute area in meters from polygons
+python-dateutil = "^2.8"
+xlrd = "^1.2.0" # interact with excel sheets
+scikit-learn = ">=0.24"
+s3fs = "^0.5" # allows pd.read_csv("s3://...")
+selenium = "^3.141.0"
+geopandas = "^0.11.0"
+plotly = "^4.14.3"
+oauth2client = "^4.1.3"
+openpyxl = "^3.0.7"
+PyPika = "^0.48.8"
+sqlparse = "^0.4.1"
+pypmml = "^0.9.11"
+pyspark2pmml = "^0.5.1"
+hyperopt = "^0.2.5"
+click = "^8.0.3"
+# Version 1.16 is pinned because of this: https://github.com/logdna/python/issues/74
+logdna = "1.16"
+altair = "^4.2.0"
+Jinja2 = "^3.1.2"
+pycryptodome = "^3.15.0"
+
+[tool.poetry.dev-dependencies]
+pre-commit = "^2.0.1"
+isort = "^4.3.21"
+flake8 = "^3.7.9"
+pytest = "^6.2"
+freezegun = "^1.1.0"
+databricks-connect = "^9.1.15"
+watchdog = "^2.1.2"
+types-python-dateutil = "^0.1.4"
+types-freezegun = "^0.1.4"
+types-requests = "^2.25.0"
+presto-python-client = "^0.8.2"
+altair-saver = "^0.5.0"
+moto = "^4.0.5"
+black = "^22.8.0"
+mypy = "0.981"
+
+[tool.poetry.scripts]
+monitoring = "monitoring.commands.main:main"
+
+[tool.pytest.ini_options]
+# Prevents pytest from adding every test module to the PYTHONPATH
+addopts = "--import-mode=importlib"
+filterwarnings = [
+    # Silence a warning triggered by boto3
+    # note the use of single quote below to denote "raw" strings in TOML
+    'ignore:.*the imp module is deprecated in favour of importlib.*:DeprecationWarning',
+    'ignore:Degrees of freedom <= 0 for slice:RuntimeWarning',
+    'ignore:divide by zero encountered in divide:RuntimeWarning',
+    'ignore:invalid value encountered in multiply:RuntimeWarning',
+]
+
+[build-system]
+requires = ["poetry>=1.0"]
+build-backend = "poetry.masonry.api"
