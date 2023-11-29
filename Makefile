@@ -1,18 +1,16 @@
 install:
-	poetry install
-	pre-commit install
+	poetry install --sync
+	poetry run pre-commit install
 
 test:
 	poetry run pytest .
 
 code-quality:
-	poetry run black .
-	poetry run isort . --recursive
-	poetry run flake8 .
+	poetry run ruff check . --fix
+	poetry run ruff format .
 	poetry run mypy .
 
 check-code-quality:
-	poetry run black --check .
-	poetry run isort . --recursive --check-only
-	poetry run flake8 .
+	poetry run ruff check .
+	poetry run ruff format --check .
 	poetry run mypy .
