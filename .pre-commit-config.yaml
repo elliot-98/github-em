@@ -1,24 +1,50 @@
 repos:
   - repo: local
     hooks:
-      - id: black
-        name: black
-        entry: black
+      - id: poetry-check
+        name: poetry-check
+        description: run poetry check to validate scheduler project config
+        entry: poetry check
+        language: python
+        language_version: python3.10
+        pass_filenames: false
+        files: ^pyproject.toml$
+
+      - id: poetry-lock
+        name: poetry-lock
+        description: run poetry lock to update lock file
+        entry: poetry lock --check
+        language: python
+        language_version: python3.10
+        pass_filenames: false
+        files: ^(poetry.lock|pyproject.toml)$
+
+      - id: ruff
+        name: ruff
+        description: "Run 'ruff' for extremely fast Python linting"
+        entry: ruff check
         language: system
-        types: [python]
-      - id: flake8
-        name: flake8
-        entry: flake8
+        types: [ python ]
+        require_serial: true
+        args:
+          - --force-exclude
+          - --fix
+          - --exit-non-zero-on-fix
+
+      - id: ruff-format
+        name: ruff-format
+        description: "Run 'ruff' for extremely fast Python formatting"
+        entry: ruff format
         language: system
-        types: [python]
-      - id: isort
-        name: isort
-        entry: isort
-        language: system
-        types: [python]
+        types: [ python ]
+        require_serial: true
+        args:
+          - --force-exclude
+          - --check
+
       - id: mypy
         name: mypy
         entry: mypy .
         language: system
-        types: [python]
+        types: [ python ]
         pass_filenames: false

@@ -11,11 +11,11 @@ class Solution(object):
         """
         slow = head
         fast = head
-        while fast.next !=None : 
-            if fast.next.next !=None :
+        while fast.next is not None:
+            if fast.next.next is not None:
                 slow = slow.next
                 fast = fast.next.next
-            else : 
+            else:
                 slow = slow.next
                 fast = fast.next
         return slow

@@ -6,11 +6,11 @@ class Solution(object):
         """
         i = 0
         j = 0
-        while i<len(nums):
-            if nums[j]==0:
+        while i < len(nums):
+            if nums[j] == 0:
                 nums.pop(nums.index(0))
                 nums.append(0)
             else:
-                j+=1
-            i+=1
+                j += 1
+            i += 1
         return nums
