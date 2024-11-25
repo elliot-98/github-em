@@ -55,6 +55,7 @@ thefuzz = "^0.20.0"
 streamlit-searchbox = "^0.1.6"
 rtree = "^1.0.1"
 geopy = "^2.4.0"
+ipykernel = "^6.29.5"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.1.6"
