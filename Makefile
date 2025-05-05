@@ -14,3 +14,6 @@ check-code-quality:
 	poetry run ruff check .
 	poetry run ruff format --check .
 	poetry run mypy .
+
+precommit:
+	poetry run pre-commit run --all-files
