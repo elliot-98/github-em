@@ -2,11 +2,11 @@
 name = "to_the_edge_utils"
 version = "0.1.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["Elliot <elliotmle@gmail.com>"]
 license = ""
 
 [tool.poetry.dependencies]
-python = ">3.9.7,<3.11"
+python = "^3.11"
 boto3 = "1.26.76"       # interact with AWS services
 # both module versions should exactly match boto3's version
 mypy-boto3 = "1.26.76"
@@ -50,17 +50,20 @@ altair = "^4.2.0"
 Jinja2 = "^3.1.2"
 pycryptodome = "^3.15.0"
 statsmodels = "^0.13.5"
-scipy = "1.8.1"
+scipy = "^1.16.0"
 thefuzz = "^0.20.0"
 streamlit-searchbox = "^0.1.6"
 rtree = "^1.0.1"
 geopy = "^2.4.0"
 ipykernel = "^6.29.5"
+bs4 = "^0.0.2"
+beautifulsoup4 = "^4.13.4"
+pre-commit = "^4.2.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.1.6"
 mypy = "^1.7.0"
-pre-commit = "^3.5.0"
+pre-commit = ">=4.2,<5.0.0"
 pytest = "^6.2"
 freezegun = "^1.1.0"
 databricks-connect = "^12.2.17"
